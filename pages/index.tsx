@@ -30,24 +30,31 @@ export default function Home() {
           <>
             Signed in as {session.user?.name} <br />
             <button onClick={() => signOut()}>Sign out</button>
-            <a href="/api/playlists">Playlists</a>
-            <button onClick={() => getMyPlaylists()}>
-              Get all my playlists
-            </button>
-            {list.map((item: PlaylistType) => (
-              <div key={item.id}>
-                <h1>{item.name}</h1>
-                <img
-                  src={
-                    (item.images &&
-                      item.images.length >= 0 &&
-                      item.images[0].url) ||
-                    ""
-                  }
-                  width="100"
-                />
-              </div>
-            ))}
+            <p>
+              <a href="/api/playlists">Playlists</a>
+            </p>
+            <p>
+              <a href="/api/search">Search</a>
+            </p>
+            <p>
+              <button onClick={() => getMyPlaylists()}>
+                Get all my playlists
+              </button>
+              {list.map((item: PlaylistType) => (
+                <div key={item.id}>
+                  <h1>{item.name}</h1>
+                  <img
+                    src={
+                      (item.images &&
+                        item.images.length >= 0 &&
+                        item.images[0].url) ||
+                      ""
+                    }
+                    width="100"
+                  />
+                </div>
+              ))}
+            </p>
           </>
         ) : (
           <>

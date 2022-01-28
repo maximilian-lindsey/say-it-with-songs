@@ -1,8 +1,11 @@
 import NextAuth from "next-auth";
 import SpotifyProvider from "next-auth/providers/spotify";
 
-const scope =
-  "playlist-modify-public playlist-modify-private playlist-read-private";
+const scope = [
+  "playlist-modify-public",
+  "playlist-modify-private",
+  "playlist-read-private",
+].join(" ");
 
 export default NextAuth({
   providers: [
