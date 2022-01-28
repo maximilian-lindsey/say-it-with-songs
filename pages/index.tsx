@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
+import Footer from '../components/Footer'
+import Header from '../components/Header'
 
 export default function Home() {
   return (
@@ -15,6 +15,7 @@ export default function Home() {
         <p className="description">
           Say it with songs by generating Spotify playlists
         </p>
+        <a href="">Login to Spotify</a>
       </main>
 
       <Footer />

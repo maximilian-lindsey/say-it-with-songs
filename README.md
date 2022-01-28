@@ -1,4 +1,4 @@
-# Next + Netlify Starter
+# Say It With Songs
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/40d4e2f5-a6a2-40e6-a222-5b9016b2e46a/deploy-status)](https://app.netlify.com/sites/zealous-curran-4ad28f/deploys)
 
