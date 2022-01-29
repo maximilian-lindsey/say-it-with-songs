@@ -62,7 +62,6 @@ export default async function handler(
   const query = req.query?.q as string;
   const session = await getSession({ req });
 
-  const searchResults: Tracks = await getSpotifyData("search", session, query);
-  //TODO forward correct status code
-  res.status(200).json(searchResults);
+  const searchResults = await getSpotifyData<Tracks>("search", session, query);
+  res.status(searchResults.status).json(searchResults.data);
 }

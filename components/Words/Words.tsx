@@ -37,13 +37,18 @@ export const Words = () => {
     const wordCombinations = getWordCombinations();
     for (const word of wordCombinations) {
       const res = await fetch(`/api/search?q="${word}"`);
-      const { tracks } = (await res.json()) as Tracks;
-      console.log(word);
-      console.log(
-        tracks.items.filter(
-          (track) => track.name.toLowerCase() === word.toLowerCase()
-        )
-      );
+      if (res.status === 200) {
+        const { tracks } = (await res.json()) as Tracks;
+        console.log(word);
+        console.log(
+          tracks.items.filter(
+            (track) => track.name.toLowerCase() === word.toLowerCase()
+          )
+        );
+      } else {
+        console.error(res);
+        break;
+      }
     }
   };
 
