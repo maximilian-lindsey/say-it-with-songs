@@ -9,10 +9,7 @@ export const Words = () => {
   const router = useRouter();
 
   const initialQuery =
-    (router.query &&
-      router.query.q &&
-      (router.query.q as string).trim().split(" ")) ||
-    [];
+    (router.query.q && (router.query.q as string).trim().split(" ")) || [];
 
   const [words, setWords] = useState(initialQuery);
 
