@@ -48,7 +48,7 @@ type Track = SpotifyBase & {
   track_number: number;
 };
 
-type Tracks = {
+export type Tracks = {
   tracks: {
     href: string;
     items: Track[];
@@ -63,5 +63,6 @@ export default async function handler(
   const session = await getSession({ req });
 
   const searchResults: Tracks = await getSpotifyData("search", session, query);
+  //TODO forward correct status code
   res.status(200).json(searchResults);
 }
