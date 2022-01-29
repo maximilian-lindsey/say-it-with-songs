@@ -1,5 +1,6 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 import Head from "next/head";
+import Link from "next/link";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 
@@ -23,10 +24,14 @@ export default function Home() {
             Signed in as {session.user?.name} <br />
             <button onClick={() => signOut()}>Sign out</button>
             <p>
-              <a href="/api/playlists">Playlists</a>
+              <Link href="/api/playlists">
+                <a>Playlists</a>
+              </Link>
             </p>
             <p>
-              <a href="/api/search">Search</a>
+              <Link href="/api/search">
+                <a>Search</a>
+              </Link>
             </p>
           </>
         ) : (
