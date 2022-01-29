@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PlaylistType } from "../../lib/spotify-types";
+import { PlaylistType } from "../../pages/api/playlists";
 
 export const Playlists = () => {
   const [list, setList] = useState([]);

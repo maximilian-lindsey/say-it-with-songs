@@ -26,7 +26,6 @@ export const getSpotifyData = async (
     const url = `${getUrl(endpoint)}${
       query ? `&q=${encodeURIComponent(query)}` : ""
     }`;
-    console.log(url);
 
     const res = await fetch(url, {
       headers: {
