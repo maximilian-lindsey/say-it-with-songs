@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getSession } from "next-auth/react";
 import { getSpotifyData } from "../../lib/spotify";
+import { DefaultSession } from "next-auth";
 
 type ExternalUrls = {
   spotify: string;
@@ -32,7 +33,7 @@ type Album = SpotifyBase & {
   total_tracks: number;
 };
 
-type Track = SpotifyBase & {
+export type Track = SpotifyBase & {
   album: Album[];
   artists: Artist[];
   disc_number: number;
