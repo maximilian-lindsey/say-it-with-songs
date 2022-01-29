@@ -44,7 +44,7 @@ export const Words = () => {
         type="text"
         name="words"
         onChange={saveInput}
-        value={initialQuery.join(" ")}
+        defaultValue={initialQuery.join(" ")}
       />
       <button
         disabled={words.length > MAX_WORD_COUNT || isLoading}
