@@ -1,3 +1,4 @@
+import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { Tracks } from "../../pages/api/search";
 
@@ -47,6 +48,9 @@ export const Words = () => {
         );
       } else {
         console.error(res);
+        if (res.status === 401) {
+          signIn();
+        }
         break;
       }
     }
