@@ -9,8 +9,6 @@ export default async function handler(
   const query = req.query?.q as string;
   const session = await getSession({ req });
 
-  console.log(query);
-
   const searchResults = await getSpotifyData("search", session, query);
   res.status(200).json(searchResults);
 }
