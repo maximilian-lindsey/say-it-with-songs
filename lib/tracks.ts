@@ -30,7 +30,10 @@ const getTracks = async (words: Words) => {
       );
       if (filteredTracks.length > 0) {
         resolvedTracks.push(
+          // filter by popularity
           filteredTracks.sort((a, b) => b.popularity - a.popularity)[0]
+          // get random track
+          // filteredTracks[Math.floor(Math.random() * filteredTracks.length)]
         );
       }
     } else {
