@@ -34,7 +34,7 @@ type Album = SpotifyBase & {
 };
 
 export type Track = SpotifyBase & {
-  album: Album[];
+  album: Album;
   artists: Artist[];
   disc_number: number;
   duration_ms: number;
