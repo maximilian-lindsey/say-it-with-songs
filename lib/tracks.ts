@@ -50,15 +50,18 @@ export const buildInputFromTracks = (words: Words, tracks: ResolvedTracks) => {
   let phrase = "";
   for (const track of tracks) {
     const partialPhrase = `${phrase} ${track.name.toLowerCase()}`.trim();
-    console.log(partialPhrase);
-
     if (input.startsWith(partialPhrase)) {
       selectedTracks.push(track);
       phrase = partialPhrase;
     }
   }
-  //TODO handle empty or partial results
-  return selectedTracks;
+
+  return selectedTracks
+    .map((track) => track.name)
+    .join(" ")
+    .toLowerCase() == input
+    ? selectedTracks
+    : [];
 };
 
 export const generateWordWithTracks = async (words: Words) => {

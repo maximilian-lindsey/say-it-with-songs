@@ -37,5 +37,9 @@ describe("tracks data transformations", () => {
     expect(buildInputFromTracks(words, searchApiResponse)).toEqual(
       selectedTracks
     );
+
+    const partialApiResponse = searchApiResponse.slice(0, 5);
+
+    expect(buildInputFromTracks(words, partialApiResponse)).toEqual([]);
   });
 });
