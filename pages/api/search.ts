@@ -42,7 +42,7 @@ export type Track = SpotifyBase & {
     isrc: string;
   };
   is_local: boolean;
-  is_playable: true;
+  is_playable: boolean;
   popularity: number;
   preview_url: string;
   track_number: number;

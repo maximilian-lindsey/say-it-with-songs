@@ -30,10 +30,7 @@ export const getTracks = async (words: Words) => {
       );
       if (filteredTracks.length > 0) {
         resolvedTracks.push(
-          // filter by popularity
           filteredTracks.sort((a, b) => b.popularity - a.popularity)[0]
-          // get random track
-          // filteredTracks[Math.floor(Math.random() * filteredTracks.length)]
         );
       }
     } else {
@@ -47,18 +44,28 @@ export const getTracks = async (words: Words) => {
   return resolvedTracks;
 };
 
-export const generateWordWithTracks = async (words: Words) => {
+export const buildInputFromTracks = (words: Words, tracks: ResolvedTracks) => {
   const input = words.join(" ").toLowerCase();
-  const tracks = await getTracks(words);
   const selectedTracks = [];
   let phrase = "";
   for (const track of tracks) {
     const partialPhrase = `${phrase} ${track.name.toLowerCase()}`.trim();
+    console.log(partialPhrase);
+
     if (input.startsWith(partialPhrase)) {
       selectedTracks.push(track);
       phrase = partialPhrase;
     }
   }
   //TODO handle empty or partial results
+  return selectedTracks;
+};
+
+export const generateWordWithTracks = async (words: Words) => {
+  const tracks = await getTracks(words);
+  console.log(tracks);
+
+  const selectedTracks = buildInputFromTracks(words, tracks);
+
   return selectedTracks;
 };
