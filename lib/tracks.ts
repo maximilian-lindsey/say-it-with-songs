@@ -1,4 +1,5 @@
 import { Tracks, Track } from "../pages/api/search";
+import { getSpotifyData, MySession } from "./spotify";
 
 type Words = string[];
 
@@ -13,25 +14,23 @@ export const getWordCombinations = (words: Words) => {
   return combinations;
 };
 
-export const getTracks = async (words: Words) => {
+export const getTracks = async (session: MySession, words: Words) => {
   const wordCombinations = getWordCombinations(words);
 
   const tracks = await Promise.all(
-    wordCombinations.map((word) =>
-      fetch(`/api/search?q="${word}"`)
-        .then((res) => res.json())
-        .then((res: Tracks) => {
-          const filteredTracks = res.tracks.items.filter(
-            (track) => track.name.toLowerCase() === word.toLowerCase()
-          );
-          if (filteredTracks.length > 0) {
-            return filteredTracks.sort(
-              (a, b) => b.popularity - a.popularity
-            )[0];
-          }
-          return null;
-        })
-    )
+    wordCombinations.map(async (word) => {
+      const res = await getSpotifyData<Tracks>("search", session, word);
+      if (!res.data) {
+        return null;
+      }
+      const filteredTracks = res.data?.tracks.items.filter(
+        (track) => track.name.toLowerCase() === word.toLowerCase()
+      );
+      if (filteredTracks.length > 0) {
+        return filteredTracks.sort((a, b) => b.popularity - a.popularity)[0];
+      }
+      return null;
+    })
   );
 
   const filteredTracks = tracks.filter((track) => track) as Track[];
@@ -58,8 +57,11 @@ export const buildInputFromTracks = (words: Words, tracks: Track[]) => {
     : [];
 };
 
-export const generateWordWithTracks = async (words: Words) => {
-  const tracks = await getTracks(words);
+export const generateWordWithTracks = async (
+  session: MySession,
+  words: Words
+) => {
+  const tracks = await getTracks(session, words);
   const selectedTracks = buildInputFromTracks(words, tracks);
 
   return selectedTracks;

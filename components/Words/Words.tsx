@@ -1,9 +1,13 @@
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { MySession } from "../../lib/spotify";
 import { generateWordWithTracks } from "../../lib/tracks";
 import { Track } from "../../pages/api/search";
 
 export const Words = () => {
+  const { data: session } = useSession();
+
   const MAX_WORD_COUNT = 10;
 
   const router = useRouter();
@@ -30,7 +34,7 @@ export const Words = () => {
     router.push({
       query: { q: words.join(" ") },
     });
-    const tracks = await generateWordWithTracks(words);
+    const tracks = await generateWordWithTracks(session as MySession, words);
     console.log(tracks);
 
     setTracks(tracks);
