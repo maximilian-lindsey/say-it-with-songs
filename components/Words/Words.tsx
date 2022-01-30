@@ -1,9 +1,8 @@
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { MySession } from "../../lib/spotify";
+import { MySession, Track } from "../../lib/spotify";
 import { generateWordWithTracks } from "../../lib/tracks";
-import { Track } from "../../pages/api/search";
 
 export const Words = () => {
   const { data: session } = useSession();

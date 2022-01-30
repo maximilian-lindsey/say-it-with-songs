@@ -1,5 +1,4 @@
-import { Tracks, Track } from "../pages/api/search";
-import { getSpotifyData, MySession } from "./spotify";
+import { getSpotifyData, MySession, Track, Tracks } from "./spotify";
 
 type Words = string[];
 
