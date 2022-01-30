@@ -54,12 +54,14 @@ export const Words = () => {
         {isLoading ? "Loading" : "Generate Playlist"}
       </button>
       <div>
-        {tracks.map((track, index) => (
-          <p key={index}>
-            <img width={100} src={track.album.images[0].url} alt="" />
-            <a href={track.uri}>{track.name}</a>
-          </p>
-        ))}
+        {tracks.length > 0
+          ? tracks.map((track, index) => (
+              <p key={index}>
+                <img width={100} src={track.album.images[0].url} alt="" />
+                <a href={track.uri}>{track.name}</a>
+              </p>
+            ))
+          : `We couldn't find matching songs - try a different phrase`}
       </div>
     </>
   );
