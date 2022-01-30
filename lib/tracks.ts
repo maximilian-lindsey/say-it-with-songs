@@ -5,7 +5,7 @@ type ResolvedTracks = Track[];
 
 type Words = string[];
 
-const getWordCombinations = (words: Words) => {
+export const getWordCombinations = (words: Words) => {
   const combinations = [] as Words;
   for (let index = 0; index < words.length; index++) {
     for (let letter = index; letter < words.length; letter++) {
@@ -16,7 +16,7 @@ const getWordCombinations = (words: Words) => {
   return combinations;
 };
 
-const getTracks = async (words: Words) => {
+export const getTracks = async (words: Words) => {
   const wordCombinations = getWordCombinations(words);
 
   const resolvedTracks = [] as ResolvedTracks;
@@ -59,5 +59,6 @@ export const generateWordWithTracks = async (words: Words) => {
       phrase = partialPhrase;
     }
   }
+  //TODO handle empty or partial results
   return selectedTracks;
 };

@@ -23,6 +23,7 @@ export const Words = () => {
     const splitInput = input.trim().split(" ");
 
     setWords(splitInput);
+    //TODO debounce input update
     router.push({
       query: { q: input },
     });

@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getSession } from "next-auth/react";
 import { getSpotifyData } from "../../lib/spotify";
-import { DefaultSession } from "next-auth";
 
 type ExternalUrls = {
   spotify: string;
