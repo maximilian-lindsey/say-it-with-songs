@@ -23,14 +23,13 @@ export const Words = () => {
     const splitInput = input.trim().split(" ");
 
     setWords(splitInput);
-    //TODO debounce input update
-    router.push({
-      query: { q: input },
-    });
   };
 
   const generatePlaylist = async () => {
     setIsLoading(true);
+    router.push({
+      query: { q: words.join(" ") },
+    });
     const tracks = await generateWordWithTracks(words);
     console.log(tracks);
 

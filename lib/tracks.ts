@@ -66,8 +66,6 @@ export const buildInputFromTracks = (words: Words, tracks: ResolvedTracks) => {
 
 export const generateWordWithTracks = async (words: Words) => {
   const tracks = await getTracks(words);
-  console.log(tracks);
-
   const selectedTracks = buildInputFromTracks(words, tracks);
 
   return selectedTracks;
