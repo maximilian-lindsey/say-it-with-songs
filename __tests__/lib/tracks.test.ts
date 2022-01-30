@@ -38,8 +38,10 @@ describe("tracks data transformations", () => {
       selectedTracks
     );
 
-    const partialApiResponse = searchApiResponse.slice(0, 5);
+    expect(buildInputFromTracks(words, searchApiResponse.slice(0, 5))).toEqual(
+      []
+    );
 
-    expect(buildInputFromTracks(words, partialApiResponse)).toEqual([]);
+    expect(buildInputFromTracks(words, [])).toEqual([]);
   });
 });
