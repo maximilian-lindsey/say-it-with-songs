@@ -41,7 +41,7 @@ export const Playlist = (props: PlaylistProps) => {
   return (
     <>
       {status !== 201 ? (
-        <button onClick={handleClick}>Save Playlist In Spotiy</button>
+        <button onClick={handleClick}>Save Playlist In Spotify</button>
       ) : (
         <iframe
           src={`https://open.spotify.com/embed/playlist/${playlistId}`}
