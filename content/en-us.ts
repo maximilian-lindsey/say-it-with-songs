@@ -6,6 +6,10 @@ export const copy = {
   login: {
     signin: {
       title: "Sign in with",
+      description: `You need to log in, so we can search Spotify for songs and save the playlist to your account.`,
+    },
+    signout: {
+      title: "Sign out",
     },
   },
 };

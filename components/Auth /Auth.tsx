@@ -37,19 +37,36 @@ export const Auth: React.FunctionComponent = (props) => {
     <>
       {!session && providers && (
         <div className={styles.signin}>
+          <iframe
+            src="https://open.spotify.com/embed/playlist/2Ahw8i0ORPqqvHla9iWJvn?utm_source=generator"
+            width="100%"
+            height="350"
+            frameBorder="0"
+            allowFullScreen={false}
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          ></iframe>
           {Object.values(providers).map((provider) => (
-            <div key={provider.name}>
+            <div className={styles.signinButton} key={provider.name}>
               <Button
+                isGhost={false}
                 onClick={() => signIn(provider.id)}
               >{`${copy.login.signin.title} ${provider.name}`}</Button>
             </div>
           ))}
+          <p className={styles.signinDescription}>
+            {copy.login.signin.description}
+          </p>
         </div>
       )}
       {session && (
         <>
-          Signed in as {session.user?.name} <br />
-          <button onClick={() => signOut()}>Sign out</button>
+          <div className={styles.signout}>
+            <p>{session.user?.name}</p>
+            <Button isGhost={true} onClick={() => signOut()}>
+              {copy.login.signout.title}
+            </Button>
+          </div>
+
           {props.children}
         </>
       )}

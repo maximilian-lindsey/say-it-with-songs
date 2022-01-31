@@ -1,3 +1,25 @@
 .signin {
   display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.signinButton {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.signinDescription {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.signout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.7);
 }
