@@ -4,6 +4,7 @@ import { useState } from "react";
 import { MySession } from "../../lib/spotify";
 import { Track } from "../../lib/spotify-types";
 import { generateWordWithTracks } from "../../lib/tracks";
+import { Button } from "../Button/Button";
 import { Playlist } from "../Playlist/Playlist";
 
 export const Tracks = () => {
@@ -49,33 +50,36 @@ export const Tracks = () => {
 
   return (
     <>
-      <input
-        disabled={isLoading}
-        type="text"
-        name="words"
-        onChange={saveInput}
-        defaultValue={initialQuery.join(" ")}
-      />
-      <button
-        disabled={words.length > MAX_WORD_COUNT || isLoading}
-        onClick={generatePlaylist}
-      >
-        {isLoading ? "Loading" : "Generate Playlist"}
-      </button>
+      <form>
+        <input
+          disabled={isLoading}
+          type="text"
+          name="words"
+          onChange={saveInput}
+          defaultValue={initialQuery.join(" ")}
+        />
+        <Button
+          onClick={generatePlaylist}
+          isDisabled={words.length > MAX_WORD_COUNT || isLoading}
+          type="submit"
+        >
+          {isLoading ? "Loading" : "Generate Playlist"}
+        </Button>
+      </form>
       <div>
         {tracks.length > 0 &&
           tracks.map((track, index) => (
-            <p key={index}>
+            <div key={index}>
               <img width={100} src={track.album.images[0].url} alt="" />
               <a href={track.uri}>{track.name}</a>
-              <div>
+              <p>
                 <span>
                   {track.artists.map((artist) => artist.name).join(", ")}
                 </span>
                 <br />
                 <span>{track.album.name}</span>
-              </div>
-            </p>
+              </p>
+            </div>
           ))}
         {/* `We couldn't find matching songs - try a different phrase` */}
       </div>
