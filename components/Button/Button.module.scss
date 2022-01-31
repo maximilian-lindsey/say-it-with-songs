@@ -10,16 +10,13 @@
     text-decoration: none;
   }
 }
-
-.button_ghost {
-  border-radius: 28px;
+.alive {
+  background: #ffffff;
+  color: #181818;
+  border: solid #181818 2px;
+}
+.ghost {
   background: rgba(255, 255, 255, 0);
-  padding: 10px 20px 10px 20px;
   color: #ffffff;
   border: solid #fff 2px;
-  text-decoration: none;
-  font-weight: bold;
-  &:hover {
-    text-decoration: none;
-  }
 }

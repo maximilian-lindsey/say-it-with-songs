@@ -12,6 +12,11 @@ export const copy = {
       title: "Sign out",
     },
   },
+  tracks: {
+    search: {
+      placeholder: "Enter your words",
+    },
+  },
   playlist: {
     save: {
       label: "Save Playlist In Spotify",

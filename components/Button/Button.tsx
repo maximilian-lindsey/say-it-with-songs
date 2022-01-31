@@ -18,7 +18,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
     <button
       disabled={isDisabled}
       type={type}
-      className={!isGhost ? styles.button : styles.button_ghost}
+      className={`${styles.button} ${!isGhost ? styles.alive : styles.ghost}`}
       onClick={onClick}
     >
       {children}

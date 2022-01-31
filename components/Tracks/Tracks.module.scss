@@ -1,0 +1,19 @@
+.search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.input {
+  padding: 10px 20px 10px 20px;
+  border-radius: 28px;
+  width: 100%;
+  &:focus {
+    outline: none;
+  }
+  background-color: #fff;
+  color: #181818;
+  box-sizing: border-box;
+}
