@@ -1,11 +1,13 @@
 import { useSession } from "next-auth/react";
 import { useState } from "react";
+import { copy } from "../../content/en-us";
 import {
   addTracksToPlaylist,
   createPlaylist,
   MySession,
 } from "../../lib/spotify";
 import { Track } from "../../lib/spotify-types";
+import { Button } from "../Button/Button";
 
 type PlaylistProps = {
   input: string;
@@ -41,7 +43,7 @@ export const Playlist = (props: PlaylistProps) => {
   return (
     <>
       {status !== 201 ? (
-        <button onClick={handleClick}>Save Playlist In Spotify</button>
+        <Button onClick={handleClick}>{copy.playlist.save.label}</Button>
       ) : (
         <iframe
           src={`https://open.spotify.com/embed/playlist/${playlistId}`}

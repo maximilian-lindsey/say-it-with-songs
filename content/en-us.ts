@@ -12,4 +12,9 @@ export const copy = {
       title: "Sign out",
     },
   },
+  playlist: {
+    save: {
+      label: "Save Playlist In Spotify",
+    },
+  },
 };
