@@ -1,8 +1,10 @@
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { MySession, Track } from "../../lib/spotify";
+import { MySession } from "../../lib/spotify";
+import { Track } from "../../lib/spotify-types";
 import { generateWordWithTracks } from "../../lib/tracks";
+import { Playlist } from "../Playlist/Playlist";
 
 export const Words = () => {
   const { data: session } = useSession();
@@ -16,6 +18,8 @@ export const Words = () => {
 
   const [words, setWords] = useState(initialQuery);
 
+  const [input, setInput] = useState((router.query.q as string).trim());
+
   const [isLoading, setIsLoading] = useState(false);
 
   const [tracks, setTracks] = useState([] as Track[]);
@@ -26,6 +30,7 @@ export const Words = () => {
     const splitInput = input.trim().split(" ");
 
     setWords(splitInput);
+    setInput(input);
   };
 
   const generatePlaylist = async () => {
@@ -65,6 +70,7 @@ export const Words = () => {
           ))}
         {/* `We couldn't find matching songs - try a different phrase` */}
       </div>
+      {tracks.length > 0 && <Playlist input={input} tracks={tracks} />}
     </>
   );
 };

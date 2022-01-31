@@ -2,7 +2,6 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import Head from "next/head";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
-import { Playlist } from "../components/Playlist/Playlist";
 import { Words } from "../components/Words/Words";
 
 export default function Home() {
@@ -26,7 +25,6 @@ export default function Home() {
             <button onClick={() => signOut()}>Sign out</button>
             <div>
               <Words />
-              <Playlist />x
             </div>
           </>
         ) : (
