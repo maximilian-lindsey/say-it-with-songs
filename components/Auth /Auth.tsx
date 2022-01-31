@@ -8,6 +8,10 @@ import {
   useSession,
 } from "next-auth/react";
 import { useEffect, useState } from "react";
+import { copy } from "../../content/en-us";
+import { Button } from "../Button/Button";
+
+import styles from "./Auth.module.scss";
 
 type Provider = Record<
   LiteralUnion<BuiltInProviderType, string>,
@@ -31,15 +35,17 @@ export const Auth: React.FunctionComponent = (props) => {
 
   return (
     <>
-      {!session &&
-        providers &&
-        Object.values(providers).map((provider) => (
-          <div key={provider.name}>
-            <button onClick={() => signIn(provider.id)}>
-              Sign in with {provider.name}
-            </button>
-          </div>
-        ))}
+      {!session && providers && (
+        <div className={styles.signin}>
+          {Object.values(providers).map((provider) => (
+            <div key={provider.name}>
+              <Button
+                onClick={() => signIn(provider.id)}
+              >{`${copy.login.signin.title} ${provider.name}`}</Button>
+            </div>
+          ))}
+        </div>
+      )}
       {session && (
         <>
           Signed in as {session.user?.name} <br />
