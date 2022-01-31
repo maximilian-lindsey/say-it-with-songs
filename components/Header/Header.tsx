@@ -1,7 +1,15 @@
-type HeaderProps = {
-  title: string
-}
+import styles from "./Header.module.scss";
 
-export default function Header({ title } : HeaderProps) {
-  return <h1 className="title">{title}</h1>
+type HeaderProps = {
+  title: string;
+  description: string;
+};
+
+export default function Header({ title, description }: HeaderProps) {
+  return (
+    <>
+      <h1 className={styles.title}>{title}</h1>
+      <h2 className={styles.description}>{description}</h2>
+    </>
+  );
 }
