@@ -16,6 +16,11 @@ export const copy = {
     search: {
       placeholder: "Enter your words",
     },
+    button: {
+      disabled: "You used too many words",
+      loading: "Loading Songs",
+      idle: "Generate Playlist",
+    },
   },
   playlist: {
     save: {

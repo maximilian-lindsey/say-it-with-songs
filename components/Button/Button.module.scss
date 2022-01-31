@@ -11,6 +11,11 @@
   &:hover {
     text-decoration: none;
   }
+  &:disabled {
+    border: 0;
+    background-color: $transparent;
+    color: $white;
+  }
 }
 .alive {
   background: $white;
@@ -18,7 +23,7 @@
   border: solid $black 2px;
 }
 .ghost {
-  background: rgba(255, 255, 255, 0);
+  background: $transparent;
   color: $white;
   border: solid #fff 2px;
 }

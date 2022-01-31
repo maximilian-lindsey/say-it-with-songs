@@ -76,7 +76,11 @@ export const Tracks = () => {
           type="submit"
           isGhost={!isSearchFocus}
         >
-          {isLoading ? "Loading" : "Generate Playlist"}
+          {words.length > MAX_WORD_COUNT
+            ? copy.tracks.button.disabled
+            : isLoading
+            ? copy.tracks.button.loading
+            : copy.tracks.button.idle}
         </Button>
       </form>
       <ul>
