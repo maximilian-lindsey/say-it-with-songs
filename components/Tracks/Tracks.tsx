@@ -59,7 +59,7 @@ export const Tracks = () => {
   };
 
   return (
-    <>
+    <section className={styles.tracks}>
       <form className={styles.search}>
         <input
           disabled={isLoading}
@@ -84,11 +84,11 @@ export const Tracks = () => {
             : copy.tracks.button.idle}
         </Button>
       </form>
-      <ul className={styles.tracks}>
+      <ul className={styles.trackList}>
         {tracks.length > 0 &&
           tracks.map((track) => (
             <li className={styles.track} key={track.id}>
-              <a href={track.uri}>
+              <a className={styles.trackImage} href={track.uri}>
                 <Image
                   width={100}
                   height={100}
@@ -111,6 +111,6 @@ export const Tracks = () => {
         {/* `We couldn't find matching songs - try a different phrase` */}
       </ul>
       {tracks.length > 0 && <Playlist input={input} tracks={tracks} />}
-    </>
+    </section>
   );
 };
