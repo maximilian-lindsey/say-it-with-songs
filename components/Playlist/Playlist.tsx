@@ -1,4 +1,5 @@
 import { useSession } from "next-auth/react";
+import { useState } from "react";
 import {
   addTracksToPlaylist,
   createPlaylist,
@@ -16,6 +17,9 @@ export const Playlist = (props: PlaylistProps) => {
 
   const { input, tracks } = props;
 
+  const [status, setStatus] = useState(0);
+  const [playlistId, setPlaylistId] = useState("");
+
   const handleClick = async () => {
     const playlist = await createPlaylist(session as MySession, {
       name: input,
@@ -30,12 +34,24 @@ export const Playlist = (props: PlaylistProps) => {
       playlist.id,
       uris
     );
-    console.log(res.status);
+    setPlaylistId(playlist.id);
+    setStatus(res.status);
   };
 
   return (
     <>
-      <button onClick={handleClick}>Save Playlist In Spotiy</button>
+      {status !== 201 ? (
+        <button onClick={handleClick}>Save Playlist In Spotiy</button>
+      ) : (
+        <iframe
+          src={`https://open.spotify.com/embed/playlist/${playlistId}`}
+          width="100%"
+          height="380"
+          frameBorder="0"
+          allowFullScreen={false}
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        ></iframe>
+      )}
     </>
   );
 };
