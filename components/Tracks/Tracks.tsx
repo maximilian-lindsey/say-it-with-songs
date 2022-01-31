@@ -6,7 +6,7 @@ import { Track } from "../../lib/spotify-types";
 import { generateWordWithTracks } from "../../lib/tracks";
 import { Playlist } from "../Playlist/Playlist";
 
-export const Words = () => {
+export const Tracks = () => {
   const { data: session } = useSession();
 
   const MAX_WORD_COUNT = 10;
@@ -68,6 +68,13 @@ export const Words = () => {
             <p key={index}>
               <img width={100} src={track.album.images[0].url} alt="" />
               <a href={track.uri}>{track.name}</a>
+              <div>
+                <span>
+                  {track.artists.map((artist) => artist.name).join(", ")}
+                </span>
+                <br />
+                <span>{track.album.name}</span>
+              </div>
             </p>
           ))}
         {/* `We couldn't find matching songs - try a different phrase` */}

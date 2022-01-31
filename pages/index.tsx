@@ -2,7 +2,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import Head from "next/head";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
-import { Words } from "../components/Words/Words";
+import { Tracks } from "../components/Tracks/Tracks";
 
 export default function Home() {
   const { data: session } = useSession();
@@ -24,7 +24,7 @@ export default function Home() {
             Signed in as {session.user?.name} <br />
             <button onClick={() => signOut()}>Sign out</button>
             <div>
-              <Words />
+              <Tracks />
             </div>
           </>
         ) : (
