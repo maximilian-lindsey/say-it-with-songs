@@ -1,3 +1,5 @@
+@import "../../styles/colors.scss";
+
 .signin {
   display: flex;
   flex-direction: column;
@@ -12,7 +14,7 @@
 }
 
 .signinDescription {
-  color: rgba(255, 255, 255, 0.7);
+  color: $textGrey;
 }
 
 .signout {
@@ -21,5 +23,5 @@
   align-items: center;
   padding: 1rem 0;
   font-weight: bold;
-  color: rgba(255, 255, 255, 0.7);
+  color: $textGrey;
 }

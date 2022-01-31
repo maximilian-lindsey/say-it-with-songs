@@ -1,9 +1,11 @@
+@import "../../styles/colors.scss";
+
 .button {
   border-radius: 28px;
-  background: #ffffff;
-  color: #181818;
+  background: $white;
+  color: $black;
   padding: 10px 20px 10px 20px;
-  border: solid #181818 2px;
+  border: solid $black 2px;
   text-decoration: none;
   font-weight: bold;
   &:hover {
@@ -11,12 +13,12 @@
   }
 }
 .alive {
-  background: #ffffff;
-  color: #181818;
-  border: solid #181818 2px;
+  background: $white;
+  color: $black;
+  border: solid $black 2px;
 }
 .ghost {
   background: rgba(255, 255, 255, 0);
-  color: #ffffff;
+  color: $white;
   border: solid #fff 2px;
 }

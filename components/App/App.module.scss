@@ -1,9 +1,11 @@
+@import "../../styles/colors.scss";
+
 .app {
   padding: 3rem 1.5rem;
   padding-bottom: 0.5rem;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6) 0, #121212 100%),
     url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjA1IiBkPSJNMCAwaDMwMHYzMDBIMHoiLz48L3N2Zz4=");
-  background-color: rgb(80, 32, 0);
-  color: #fff;
+  background-color: $appBackground;
+  color: $white;
   position: relative;
 }

@@ -1,3 +1,5 @@
+@import "../../styles/colors.scss";
+
 .search {
   display: flex;
   flex-direction: column;
@@ -13,7 +15,7 @@
   &:focus {
     outline: none;
   }
-  background-color: #fff;
-  color: #181818;
+  background-color: $white;
+  color: $black;
   box-sizing: border-box;
 }
