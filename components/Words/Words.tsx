@@ -18,7 +18,9 @@ export const Words = () => {
 
   const [words, setWords] = useState(initialQuery);
 
-  const [input, setInput] = useState((router.query.q as string).trim());
+  const [input, setInput] = useState(
+    (router.query.q && (router.query.q as string).trim()) || ""
+  );
 
   const [isLoading, setIsLoading] = useState(false);
 
