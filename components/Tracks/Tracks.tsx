@@ -29,6 +29,8 @@ export const Tracks = () => {
 
   const [tracks, setTracks] = useState([] as Track[]);
 
+  const [isSearchFocus, setIsSearchFocus] = useState(false);
+
   const saveInput = (event: React.FormEvent<HTMLInputElement>) => {
     const input = event.currentTarget.value;
 
@@ -48,6 +50,11 @@ export const Tracks = () => {
 
     setTracks(tracks);
     setIsLoading(false);
+    setIsSearchFocus(false);
+  };
+
+  const onSearchFocus = () => {
+    setIsSearchFocus(true);
   };
 
   return (
@@ -61,11 +68,13 @@ export const Tracks = () => {
           defaultValue={initialQuery.join(" ")}
           className={styles.input}
           placeholder={copy.tracks.search.placeholder}
+          onFocus={onSearchFocus}
         />
         <Button
           onClick={generatePlaylist}
           isDisabled={words.length > MAX_WORD_COUNT || isLoading}
           type="submit"
+          isGhost={!isSearchFocus}
         >
           {isLoading ? "Loading" : "Generate Playlist"}
         </Button>
