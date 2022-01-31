@@ -70,10 +70,10 @@ export const Tracks = () => {
           {isLoading ? "Loading" : "Generate Playlist"}
         </Button>
       </form>
-      <div>
+      <ul>
         {tracks.length > 0 &&
-          tracks.map((track, index) => (
-            <div key={index}>
+          tracks.map((track) => (
+            <li className={styles.track} key={track.id}>
               <img width={100} src={track.album.images[0].url} alt="" />
               <a href={track.uri}>{track.name}</a>
               <p>
@@ -83,10 +83,10 @@ export const Tracks = () => {
                 <br />
                 <span>{track.album.name}</span>
               </p>
-            </div>
+            </li>
           ))}
         {/* `We couldn't find matching songs - try a different phrase` */}
-      </div>
+      </ul>
       {tracks.length > 0 && <Playlist input={input} tracks={tracks} />}
     </>
   );
