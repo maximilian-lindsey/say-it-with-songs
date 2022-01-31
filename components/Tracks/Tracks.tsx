@@ -8,6 +8,7 @@ import { generateWordWithTracks } from "../../lib/tracks";
 import { Button } from "../Button/Button";
 import { Playlist } from "../Playlist/Playlist";
 import styles from "./Tracks.module.scss";
+import Image from "next/image";
 
 export const Tracks = () => {
   const { data: session } = useSession();
@@ -83,18 +84,27 @@ export const Tracks = () => {
             : copy.tracks.button.idle}
         </Button>
       </form>
-      <ul>
+      <ul className={styles.tracks}>
         {tracks.length > 0 &&
           tracks.map((track) => (
             <li className={styles.track} key={track.id}>
-              <img width={100} src={track.album.images[0].url} alt="" />
-              <a href={track.uri}>{track.name}</a>
-              <p>
-                <span>
+              <a href={track.uri}>
+                <Image
+                  width={100}
+                  height={100}
+                  src={track.album.images[0].url}
+                  alt={`${track.name} by ${track.artists
+                    .map((artist) => artist.name)
+                    .join(", ")}`}
+                />
+              </a>
+              <p className={styles.trackMeta}>
+                <a className={styles.trackName} href={track.uri}>
+                  {track.name}
+                </a>
+                <span className={styles.trackArtists}>
                   {track.artists.map((artist) => artist.name).join(", ")}
                 </span>
-                <br />
-                <span>{track.album.name}</span>
               </p>
             </li>
           ))}
