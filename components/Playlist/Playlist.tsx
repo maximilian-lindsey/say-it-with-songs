@@ -27,7 +27,7 @@ export const Playlist = (props: PlaylistProps) => {
       name: input,
       public: false,
       collaborative: false,
-      description: "Created with https://say-it-with-songs.netlify.app/",
+      description: "Created with https://say-it-with-songs.lindsey.digital/",
     });
     const uris = tracks.map((track) => track.uri);
     const res = await addTracksToPlaylist(
