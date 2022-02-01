@@ -51,17 +51,16 @@ export const Auth: React.FunctionComponent = (props) => {
                 isGhost={false}
                 onClick={() => signIn(provider.id)}
               >{`${copy.login.signin.title} ${provider.name}`}</Button>
+              <a href="https://www.signupanywhere.com/signup/k4ctdvhi">
+                Join the waitlist
+              </a>
             </div>
           ))}
           <p className={styles.signinDescription}>
-            <span>{copy.login.signin.description} </span>
             <span>
               This app is still in early access mode and currently invite only.{" "}
             </span>
-            <br />
-            <a href="https://www.signupanywhere.com/signup/k4ctdvhi">
-              Join the waitlist
-            </a>
+            <span>{copy.login.signin.description} </span>
           </p>
         </div>
       )}

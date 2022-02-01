@@ -10,7 +10,10 @@
 .signinButton {
   display: flex;
   justify-content: center;
-  margin: 2rem 0;
+  margin: 1rem 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 .signinDescription {
