@@ -57,9 +57,6 @@ export const Auth: React.FunctionComponent = (props) => {
             </div>
           ))}
           <p className={styles.signinDescription}>
-            <span>
-              This app is still in early access mode and currently invite only.{" "}
-            </span>
             <span>{copy.login.signin.description} </span>
           </p>
         </div>

@@ -6,7 +6,7 @@ export const copy = {
   login: {
     signin: {
       title: "Sign in with",
-      description: `You need to sign in so we can search Spotify for songs and save the playlist to your account.`,
+      description: `This app is still in early access and is currently invite only. You need to sign in so we can search Spotify for songs and save the playlist to your account.`,
     },
     signout: {
       title: "Sign out",
