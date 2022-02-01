@@ -58,10 +58,10 @@ export const Auth: React.FunctionComponent = (props) => {
             <span>
               This app is still in early access mode and currently invite only.{" "}
             </span>
-            {/* <span>To get access please </span>
-            <a href="mailto:max@lindsey.digital?subject=Invite: Say It With Songs">
-              contact me
-            </a> */}
+            <br />
+            <a href="https://www.signupanywhere.com/signup/k4ctdvhi">
+              Join the waitlist
+            </a>
             .
           </p>
         </div>
