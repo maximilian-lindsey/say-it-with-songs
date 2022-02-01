@@ -60,8 +60,8 @@ export const Auth: React.FunctionComponent = (props) => {
             </span>
             <br />
             <span>To get access please </span>
-            <a href="mailto:max@lindsey.digital?subject=Say It With Songs">
-              contact me
+            <a href="mailto:max@lindsey.digital?subject=Invite: Say It With Songs">
+              contact me.
             </a>
           </p>
         </div>
