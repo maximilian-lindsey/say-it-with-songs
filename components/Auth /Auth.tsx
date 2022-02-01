@@ -62,7 +62,6 @@ export const Auth: React.FunctionComponent = (props) => {
             <a href="https://www.signupanywhere.com/signup/k4ctdvhi">
               Join the waitlist
             </a>
-            .
           </p>
         </div>
       )}
