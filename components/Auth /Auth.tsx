@@ -54,7 +54,13 @@ export const Auth: React.FunctionComponent = (props) => {
             </div>
           ))}
           <p className={styles.signinDescription}>
-            {copy.login.signin.description}
+            <span>{copy.login.signin.description} </span>
+            <span>
+              This app is still in development mode. To get access please{" "}
+            </span>
+            <a href="mailto:max@lindsey.digital?subject=Say It With Songs">
+              contact me
+            </a>
           </p>
         </div>
       )}

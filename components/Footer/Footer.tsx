@@ -1,4 +1,5 @@
 import styles from "./Footer.module.scss";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -12,6 +13,14 @@ export default function Footer() {
           <a href="https://github.com/maximilian-lindsey/say-it-with-songs">
             GitHub Repository
           </a>
+        </p>
+        <p>
+          <Image
+            width={118}
+            height={35}
+            src={"/spotify_logo_green.png"}
+            alt="Spotify Logo"
+          />
         </p>
       </footer>
     </>
