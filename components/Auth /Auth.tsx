@@ -56,12 +56,12 @@ export const Auth: React.FunctionComponent = (props) => {
           <p className={styles.signinDescription}>
             <span>{copy.login.signin.description} </span>
             <span>
-              This app is still in development mode and currently invite only.{" "}
+              This app is still in early access mode and currently invite only.{" "}
             </span>
-            <span>To get access please </span>
+            {/* <span>To get access please </span>
             <a href="mailto:max@lindsey.digital?subject=Invite: Say It With Songs">
               contact me
-            </a>
+            </a> */}
             .
           </p>
         </div>
