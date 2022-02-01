@@ -28,7 +28,7 @@ export const Tracks = () => {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const [tracks, setTracks] = useState([] as Track[]);
+  const [tracks, setTracks] = useState<Track[] | null>(null);
 
   const [isSearchFocus, setIsSearchFocus] = useState(false);
 
@@ -47,7 +47,6 @@ export const Tracks = () => {
       query: { q: words.join(" ") },
     });
     const tracks = await generateWordWithTracks(session as MySession, words);
-    console.log(tracks);
 
     setTracks(tracks);
     setIsLoading(false);
@@ -84,9 +83,9 @@ export const Tracks = () => {
             : copy.tracks.button.idle}
         </Button>
       </form>
-      <ul className={styles.trackList}>
-        {tracks.length > 0 &&
-          tracks.map((track) => (
+      {tracks && tracks.length > 0 && (
+        <ul className={styles.trackList}>
+          {tracks.map((track) => (
             <li className={styles.track} key={track.id}>
               <a className={styles.trackImage} href={track.uri}>
                 <Image
@@ -108,9 +107,12 @@ export const Tracks = () => {
               </p>
             </li>
           ))}
-        {/* `We couldn't find matching songs - try a different phrase` */}
-      </ul>
-      {tracks.length > 0 && <Playlist input={input} tracks={tracks} />}
+        </ul>
+      )}
+      {tracks && tracks.length === 0 && <p>{copy.tracks.search.emptyResult}</p>}
+      {tracks && tracks.length > 0 && (
+        <Playlist input={input} tracks={tracks} />
+      )}
     </section>
   );
 };

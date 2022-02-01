@@ -15,6 +15,7 @@ export const copy = {
   tracks: {
     search: {
       placeholder: "Enter your words",
+      emptyResult: `We couldn't find matching songs - try a different phrase`,
     },
     button: {
       disabled: "You used too many words",
