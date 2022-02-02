@@ -1,7 +1,7 @@
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { copy } from "../../content/en-us";
+import { text } from "../../content/en-us";
 import { MySession } from "../../lib/spotify";
 import { Track } from "../../lib/spotify-types";
 import { generateWordWithTracks } from "../../lib/tracks";
@@ -67,7 +67,7 @@ export const Tracks = () => {
           onChange={saveInput}
           defaultValue={initialQuery.join(" ")}
           className={styles.input}
-          placeholder={copy.tracks.search.placeholder}
+          placeholder={text.tracks.search.placeholder}
           onFocus={onSearchFocus}
         />
         <Button
@@ -77,10 +77,10 @@ export const Tracks = () => {
           isGhost={!isSearchFocus}
         >
           {words.length > MAX_WORD_COUNT
-            ? copy.tracks.button.disabled
+            ? text.tracks.button.disabled
             : isLoading
-            ? copy.tracks.button.loading
-            : copy.tracks.button.idle}
+            ? text.tracks.button.loading
+            : text.tracks.button.idle}
         </Button>
       </form>
       {tracks && tracks.length > 0 && (
@@ -109,7 +109,7 @@ export const Tracks = () => {
           ))}
         </ul>
       )}
-      {tracks && tracks.length === 0 && <p>{copy.tracks.search.emptyResult}</p>}
+      {tracks && tracks.length === 0 && <p>{text.tracks.search.emptyResult}</p>}
       {tracks && tracks.length > 0 && (
         <Playlist input={input} tracks={tracks} />
       )}

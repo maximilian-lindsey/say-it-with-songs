@@ -1,6 +1,6 @@
 import { useSession } from "next-auth/react";
 import { useState } from "react";
-import { copy } from "../../content/en-us";
+import { text } from "../../content/en-us";
 import {
   addTracksToPlaylist,
   createPlaylist,
@@ -43,7 +43,7 @@ export const Playlist = (props: PlaylistProps) => {
   return (
     <>
       {status !== 201 ? (
-        <Button onClick={handleClick}>{copy.playlist.save.label}</Button>
+        <Button onClick={handleClick}>{text.playlist.save.label}</Button>
       ) : (
         <iframe
           src={`https://open.spotify.com/embed/playlist/${playlistId}`}

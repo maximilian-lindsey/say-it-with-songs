@@ -8,8 +8,9 @@ import {
   useSession,
 } from "next-auth/react";
 import { useEffect, useState } from "react";
-import { copy } from "../../content/en-us";
+import { text } from "../../content/en-us";
 import { Button } from "../Button/Button";
+import { Video } from "../Video/Video";
 
 import styles from "./Auth.module.scss";
 
@@ -37,10 +38,10 @@ export const Auth: React.FunctionComponent = (props) => {
     <>
       {!session && providers && (
         <div className={styles.signin}>
-          <video
+          <Video
             src="/intro.mp4"
-            width="300"
-            height="432"
+            width={300}
+            height={432}
             controls={false}
             autoPlay={true}
             loop={true}
@@ -51,14 +52,14 @@ export const Auth: React.FunctionComponent = (props) => {
               <Button
                 isGhost={false}
                 onClick={() => signIn(provider.id)}
-              >{`${copy.login.signin.title} ${provider.name}`}</Button>
+              >{`${text.login.signin.title} ${provider.name}`}</Button>
               <a href="https://www.signupanywhere.com/signup/k4ctdvhi">
-                Join the waitlist
+                {text.login.signin.cta}
               </a>
             </div>
           ))}
           <p className={styles.signinDescription}>
-            <span>{copy.login.signin.description} </span>
+            {text.login.signin.description}
           </p>
         </div>
       )}
@@ -67,7 +68,7 @@ export const Auth: React.FunctionComponent = (props) => {
           <div className={styles.signout}>
             <p>{session.user?.name}</p>
             <Button isGhost={true} onClick={() => signOut()}>
-              {copy.login.signout.title}
+              {text.login.signout.title}
             </Button>
           </div>
 
