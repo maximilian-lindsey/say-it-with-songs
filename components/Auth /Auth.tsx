@@ -37,14 +37,15 @@ export const Auth: React.FunctionComponent = (props) => {
     <>
       {!session && providers && (
         <div className={styles.signin}>
-          <iframe
-            src="https://open.spotify.com/embed/playlist/2Ahw8i0ORPqqvHla9iWJvn?utm_source=generator"
-            width="100%"
-            height="350"
-            frameBorder="0"
-            allowFullScreen={false}
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          ></iframe>
+          <video
+            src="/intro.mp4"
+            width="350"
+            height="482"
+            controls={false}
+            autoPlay={true}
+            loop={true}
+            muted={true}
+          />
           {Object.values(providers).map((provider) => (
             <div className={styles.signinButton} key={provider.name}>
               <Button
