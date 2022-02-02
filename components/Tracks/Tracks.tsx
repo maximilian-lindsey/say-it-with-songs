@@ -7,8 +7,9 @@ import { Track } from "../../lib/spotify-types";
 import { generateWordWithTracks } from "../../lib/tracks";
 import { Button } from "../Button/Button";
 import { Playlist } from "../Playlist/Playlist";
+import { TrackList } from "./TrackList";
+
 import styles from "./Tracks.module.scss";
-import Image from "next/image";
 
 export const Tracks = () => {
   const { data: session } = useSession();
@@ -83,32 +84,7 @@ export const Tracks = () => {
             : text.tracks.button.idle}
         </Button>
       </form>
-      {tracks && tracks.length > 0 && (
-        <ul className={styles.trackList}>
-          {tracks.map((track) => (
-            <li className={styles.track} key={track.id}>
-              <a className={styles.trackImage} href={track.uri}>
-                <Image
-                  width={100}
-                  height={100}
-                  src={track.album.images[0].url}
-                  alt={`${track.name} by ${track.artists
-                    .map((artist) => artist.name)
-                    .join(", ")}`}
-                />
-              </a>
-              <p className={styles.trackMeta}>
-                <a className={styles.trackName} href={track.uri}>
-                  {track.name}
-                </a>
-                <span className={styles.trackArtists}>
-                  {track.artists.map((artist) => artist.name).join(", ")}
-                </span>
-              </p>
-            </li>
-          ))}
-        </ul>
-      )}
+      {tracks && tracks.length > 0 && <TrackList tracks={tracks} />}
       {tracks && tracks.length === 0 && <p>{text.tracks.search.emptyResult}</p>}
       {tracks && tracks.length > 0 && (
         <Playlist input={input} tracks={tracks} />
