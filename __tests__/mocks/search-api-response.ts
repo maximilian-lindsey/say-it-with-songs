@@ -1,4 +1,4 @@
-import { Track } from "../../pages/api/search";
+import { Track } from "../../lib/spotify-types";
 
 const searchApiResponse = [
   {

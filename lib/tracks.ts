@@ -19,12 +19,13 @@ export const getTracks = async (session: MySession, words: Words) => {
 
   const tracks = await Promise.all(
     wordCombinations.map(async (word) => {
+      word = word.toLowerCase();
       const res = await getSpotifyData<Tracks>("search", session, word);
       if (!res.data) {
         return null;
       }
       const filteredTracks = res.data?.tracks.items.filter(
-        (track) => track.name.toLowerCase() === word.toLowerCase()
+        (track) => track.name.toLowerCase() === word
       );
       if (filteredTracks.length > 0) {
         return filteredTracks.sort((a, b) => b.popularity - a.popularity)[0];

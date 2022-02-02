@@ -95,7 +95,6 @@ export const createPlaylist = async (
 export const addTracksToPlaylist = async (
   session: MySession,
   tracksUri: string,
-  playlistId: string,
   uris: string[]
 ) => {
   const res = await fetch(tracksUri, {

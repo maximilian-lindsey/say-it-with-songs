@@ -33,7 +33,6 @@ export const Playlist = (props: PlaylistProps) => {
     const res = await addTracksToPlaylist(
       session as MySession,
       playlist.tracks.href,
-      playlist.id,
       uris
     );
     setPlaylistId(playlist.id);
