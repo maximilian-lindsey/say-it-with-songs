@@ -39,8 +39,8 @@ export const Auth: React.FunctionComponent = (props) => {
         <div className={styles.signin}>
           <video
             src="/intro.mp4"
-            width="350"
-            height="482"
+            width="300"
+            height="432"
             controls={false}
             autoPlay={true}
             loop={true}
